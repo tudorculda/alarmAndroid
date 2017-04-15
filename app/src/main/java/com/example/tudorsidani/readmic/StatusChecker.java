@@ -58,7 +58,7 @@ public class StatusChecker implements Runnable{
                         isAlarmTriggered = true;
 
                         smsDist.sendSms(c.getErrorMessage());
-//                        printMsg(c.getErrorMessage());
+                        printMsg(c.getErrorMessage());
                     }
                 }
                 if(isAlarmTriggered)
