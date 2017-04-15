@@ -8,7 +8,7 @@ import java.util.Calendar;
  * Created by tudor on 14.04.2017.
  */
 
-public class InfoStatusChecker implements Checker {
+public class InfoStatusChecker implements InfoChecker {
 
     private long lastStatus_ms = 0;
     private long minDeltaTime_ms = 5 * 60 * 60 * 1000;
@@ -18,27 +18,25 @@ public class InfoStatusChecker implements Checker {
         usbChargerChecker = u;
     }
     private int reportHour = 8;
+
+
+
+
     @Override
-    public boolean isStatusOk() {
+    public boolean isTimeToReport() {
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR);
         long t = System.currentTimeMillis();
 
         if (hour == reportHour && (t - lastStatus_ms) > minDeltaTime_ms ){
             lastStatus_ms = t;
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 
     @Override
-    public String getErrorMessage() {
-
-        return " Status => Aplicatia functioneaza, nivelul bateriei este: " + usbChargerChecker.getBatteryLevel() + "%";
-    }
-
-    @Override
-    public void clearObject() {
-
+    public String getMessage() {
+        return "Aplicatia functioneaza, nivelul bateriei este: " + usbChargerChecker.getBatteryLevel() + "%";
     }
 }

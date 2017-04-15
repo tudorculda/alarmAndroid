@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         UsbChargerChecker u = new UsbChargerChecker(view.getContext());
         u.setLog(this);
         statusChecker.addChecker(u);
-        statusChecker.addChecker(new InfoStatusChecker(u));
+        statusChecker.infoCheker = (new InfoStatusChecker(u));
         Button bt = (Button) findViewById(R.id.rec_button );
         bt.setEnabled(false);
         Thread t = new Thread(statusChecker);

@@ -11,7 +11,7 @@ import android.os.BatteryManager;
  */
 
 public class UsbChargerChecker  extends BroadcastReceiver implements Checker{
-    private String lastError = "Telefonul nu incarca, problema poate fi bateria generala sau mufa usb deconectata, nivelul bateriei telefonului este ";
+    private String lastError = "Telefonul nu incarca, nivelul bateriei=";
     private Intent intent;
     private int level;
     boolean isPlugged = true;

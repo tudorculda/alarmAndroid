@@ -12,6 +12,7 @@ public class StatusChecker implements Runnable{
     private SmsM smsDist;
     private MainActivity log;
     public List<Checker> checkerList = new ArrayList<>();
+    public InfoChecker infoCheker;
     private long checkTimeFreq_ms = 1000;
     private long reCheckAlarm_ms = 30 * 60 * 1000; //  30 minute
 //private long reCheckAlarm_ms = 5 * 1000; //  30 minute
@@ -60,6 +61,10 @@ public class StatusChecker implements Runnable{
                         smsDist.sendSms(c.getErrorMessage());
                         printMsg(c.getErrorMessage());
                     }
+                    if (infoCheker.isTimeToReport()){
+                        smsDist.sendSms(infoCheker.getMessage());
+                    }
+
                 }
                 if(isAlarmTriggered)
                     lastTriggeredAlarmTime = runningTime;
