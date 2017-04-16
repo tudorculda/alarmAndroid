@@ -24,7 +24,7 @@ public class MicGetterChecker implements Checker{
     private String lastError = "no errors in mic analysis";
 
 
-    private final  long  stp_trigger = 100000;
+    private final  long  stp_trigger = 300000;
 
     private int readingTime_millis = 50;
 

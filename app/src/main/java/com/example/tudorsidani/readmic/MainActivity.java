@@ -1,5 +1,7 @@
 package com.example.tudorsidani.readmic;
 
+import android.content.Context;
+import android.os.PowerManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,7 +20,7 @@ import utils.ArrayUtils;
 public class MainActivity extends AppCompatActivity {
     private StatusChecker statusChecker;
     private TextView logView;
-
+    PowerManager.WakeLock wl;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,17 +29,27 @@ public class MainActivity extends AppCompatActivity {
         statusChecker = new StatusChecker();
         statusChecker.setLog(this);
 
+        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "My Tag");
+        wl.acquire();
 
 
     }
 
     @Override
     protected void onStop() {
-        statusChecker.isRunning = false;
+
         super.onStop();
 
     }
 
+    @Override
+    protected void onDestroy(){
+        statusChecker.isRunning = false;
+        wl.release();
+        super.onDestroy();
+
+    }
 
     public void println(String msg)
     {
