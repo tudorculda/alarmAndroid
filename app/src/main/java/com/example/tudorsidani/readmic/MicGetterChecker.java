@@ -24,7 +24,7 @@ public class MicGetterChecker implements Checker{
     private String lastError = "no errors in mic analysis";
 
 
-    private final  long  stp_trigger = 300000;
+    private final  long  stp_trigger = 150000;
 
     private int readingTime_millis = 50;
 
@@ -87,7 +87,7 @@ public class MicGetterChecker implements Checker{
         }
 
         stp /= samples.length;
-       // printMsg("stp=" + stp);
+//        printMsg("stp=" + stp);
         if ( stp > stp_trigger ) {
             lastError = "Atentie! Alarma a fost declansata!";
             return false;
