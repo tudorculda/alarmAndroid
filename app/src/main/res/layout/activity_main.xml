@@ -62,8 +62,8 @@
         android:id="@+id/editText2"
         android:layout_below="@+id/editText"
         android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText"/>
-        <!--android:text="0765850803"/>-->
+        android:layout_alignStart="@+id/editText"
+        android:text="0765850803"/>
 
 
     <EditText
@@ -74,8 +74,7 @@
         android:id="@+id/editText3"
         android:layout_below="@+id/editText2"
         android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText"/>
-        <!--android:text="0763177590"-->
-
+        android:layout_alignStart="@+id/editText"
+        android:text="0763177590"/>
 
 </RelativeLayout>
