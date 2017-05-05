@@ -6,11 +6,18 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.BatteryManager;
 
+import java.util.Calendar;
+
 /**
  * Created by tudor on 14.04.2017.
  */
 
-public class UsbChargerChecker  extends BroadcastReceiver implements Checker{
+public class UsbChargerChecker  extends BroadcastReceiver implements InfoChecker{
+
+    private long lastStatus_ms = 0;
+    private long minDeltaTime_ms = 2 * 60 * 60 * 1000;
+
+
     private String lastError = "Telefonul nu incarca, nivelul bateriei=";
     private Intent intent;
     private int level;
@@ -38,26 +45,12 @@ public class UsbChargerChecker  extends BroadcastReceiver implements Checker{
         context.registerReceiver(this,new IntentFilter(Intent.ACTION_POWER_DISCONNECTED));
         context.registerReceiver(this,new IntentFilter(Intent.ACTION_POWER_CONNECTED));
     }
-    @Override
-    public boolean isStatusOk() {
 
-        return isPlugged;
-
-    }
-
-    @Override
-    public String getErrorMessage() {
-        return lastError + getBatteryLevel() + "%";
-    }
 
     public int getBatteryLevel(){
         return  intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
     }
 
-    @Override
-    public void clearObject() {
-
-    }
 
     public void onReceive(Context context , Intent intent) {
         String action = intent.getAction();
@@ -70,5 +63,24 @@ public class UsbChargerChecker  extends BroadcastReceiver implements Checker{
         }
         if(action.equals(Intent.ACTION_BATTERY_CHANGED))
             intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
+    }
+
+    @Override
+    public boolean isTimeToReport() {
+
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR);
+        long t = System.currentTimeMillis();
+
+        if ( ((t - lastStatus_ms) > minDeltaTime_ms) && !isPlugged ){
+            lastStatus_ms = t;
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public String getMessage() {
+        return lastError + getBatteryLevel() + "%";
     }
 }

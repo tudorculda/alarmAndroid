@@ -27,10 +27,9 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/scrollView"
-        android:layout_below="@+id/micThresh"
+        android:layout_below="@+id/rec_button"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="18dp">
+        android:layout_alignParentStart="true">
 
         <TextView
             android:layout_width="wrap_content"
@@ -62,8 +61,8 @@
         android:layout_alignStart="@+id/editText"
         android:layout_below="@+id/editText"
         android:ems="10"
-        android:hint="0765850803"
         android:inputType="phone"
+        android:text="0765850803"
         android:textSize="14sp" />
 
 
@@ -75,8 +74,8 @@
         android:layout_alignStart="@+id/editText"
         android:layout_below="@+id/editText2"
         android:ems="10"
-        android:hint="0763177590"
         android:inputType="phone"
+        android:text="0763177590"
         android:textSize="14sp" />
 
     <EditText

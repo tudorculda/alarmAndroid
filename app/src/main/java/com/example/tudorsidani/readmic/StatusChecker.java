@@ -12,7 +12,7 @@ public class StatusChecker implements Runnable{
     private SmsM smsDist;
     private MainActivity log;
     public List<Checker> checkerList = new ArrayList<>();
-    public InfoChecker infoCheker;
+    public List<InfoChecker> infoChekerList = new ArrayList<>();
     private long checkTimeFreq_ms = 1000;
     private long reCheckAlarm_ms = 30 * 60 * 1000; //  30 minute
 //private long reCheckAlarm_ms = 5 * 1000; //  30 minute
@@ -20,6 +20,10 @@ public class StatusChecker implements Runnable{
 
     public void addChecker(Checker c){
         checkerList.add(c);
+    }
+
+    public void addInfoChecker(InfoChecker c){
+        infoChekerList.add(c);
     }
 
     public void setSmsDist( SmsM s )
@@ -61,8 +65,10 @@ public class StatusChecker implements Runnable{
                         smsDist.sendSms(c.getErrorMessage());
                         printMsg(c.getErrorMessage());
                     }
-                    if (infoCheker.isTimeToReport()){
-                        smsDist.sendSms(infoCheker.getMessage());
+                    for( InfoChecker infoChecker : infoChekerList) {
+                        if (infoChecker.isTimeToReport()) {
+                            smsDist.sendSms(infoChecker.getMessage());
+                        }
                     }
 
                 }
