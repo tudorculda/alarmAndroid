@@ -24,10 +24,13 @@ public class MicGetterChecker implements Checker{
     private String lastError = "no errors in mic analysis";
 
 
-    private final  long  stp_trigger = 150000;
+    private double stp_trigger = 380;
 
     private int readingTime_millis = 50;
 
+    private final int consecutiveCountTrhesh = 3;
+
+    private int count = 0;
 
 
 
@@ -36,6 +39,12 @@ public class MicGetterChecker implements Checker{
     {
         minbuffer =  AudioRecord.getMinBufferSize(sampleRate, channelConfig, audioFormat);
         rec = new AudioRecord(MediaRecorder.AudioSource.MIC, sampleRate, channelConfig, audioFormat, minbuffer);
+    }
+
+    public MicGetterChecker( double micTresh )
+    {
+        this();
+        stp_trigger = micTresh;
     }
 
     public void setLog( MainActivity l )
@@ -81,14 +90,23 @@ public class MicGetterChecker implements Checker{
     @Override
     public boolean isStatusOk() {
         short[] samples = getSamples( readingTime_millis );
-        long stp = 0;
+        double stp = 0;
         for (int i = 0; i < samples.length; i++) {
             stp +=  samples[i]*samples[i];
         }
 
-        stp /= samples.length;
-//        printMsg("stp=" + stp);
+        stp = Math.sqrt(stp) / samples.length;
         if ( stp > stp_trigger ) {
+            count++;
+            printMsg("MicLevel=" + (int)stp+ " , count=" + count);
+        }
+        else{
+            count = 0;
+        }
+
+        if ( count >= consecutiveCountTrhesh ) {
+            count = 0;
+
             lastError = "Atentie! Alarma a fost declansata!";
             return false;
         }

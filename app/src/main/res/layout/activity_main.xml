@@ -5,11 +5,12 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
-    android:background="#797676">
+    android:background="#fdf4f4">
     <LinearLayout android:focusable="true"
         android:focusableInTouchMode="true"
         android:layout_width="0px"
-        android:layout_height="0px" >
+        android:layout_height="0px"
+        android:id="@+id/linearLayout">
         <requestFocus />
     </LinearLayout>
     <Button
@@ -18,20 +19,18 @@
         android:text="Run"
         android:id="@+id/rec_button"
         android:onClick="startAlarm"
-        android:layout_below="@+id/editText3"
-        android:layout_alignLeft="@+id/editText3"
-        android:layout_alignStart="@+id/editText3"
-        android:layout_marginTop="13dp" />
+        android:layout_alignBottom="@+id/micThresh"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/scrollView"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/rec_button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        android:layout_below="@+id/micThresh"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="18dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -44,37 +43,66 @@
     </ScrollView>
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:ems="10"
         android:id="@+id/editText"
-        android:layout_alignParentTop="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/scrollView"
+        android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/scrollView"
-        android:text="0764135706"/>
+        android:ems="10"
+        android:inputType="phone"
+        android:text="0764135706"
+        android:textSize="14sp" />
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:ems="10"
         android:id="@+id/editText2"
-        android:layout_below="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/editText"
         android:layout_alignStart="@+id/editText"
-        android:text="0765850803"/>
+        android:layout_below="@+id/editText"
+        android:ems="10"
+        android:hint="0765850803"
+        android:inputType="phone"
+        android:textSize="14sp" />
 
 
     <EditText
+        android:id="@+id/editText3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:ems="10"
-        android:id="@+id/editText3"
-        android:layout_below="@+id/editText2"
         android:layout_alignLeft="@+id/editText"
         android:layout_alignStart="@+id/editText"
-        android:text="0763177590"/>
+        android:layout_below="@+id/editText2"
+        android:ems="10"
+        android:hint="0763177590"
+        android:inputType="phone"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/micThresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editText3"
+        android:layout_alignRight="@+id/editText3"
+        android:layout_below="@+id/editText3"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp"
+        android:layout_toRightOf="@+id/textView2"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="30"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/micThresh"
+        android:layout_alignBottom="@+id/micThresh"
+        android:layout_alignLeft="@+id/editText3"
+        android:layout_alignStart="@+id/editText3"
+        android:text="MicLevel ->"
+        android:textSize="18sp" />
 
 </RelativeLayout>

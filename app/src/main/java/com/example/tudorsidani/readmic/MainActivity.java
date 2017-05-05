@@ -68,7 +68,8 @@ public class MainActivity extends AppCompatActivity {
         ed = (EditText) findViewById( R.id.editText3 );
         smsDist.addPhone( ed.getText().toString() );
         statusChecker.setSmsDist(smsDist);
-        MicGetterChecker mc = new MicGetterChecker();
+        ed = (EditText) findViewById( R.id.micThresh );
+        MicGetterChecker mc = new MicGetterChecker( Double.parseDouble( ed.getText().toString() ) );
         mc.setLog(this);
         statusChecker.addChecker(mc);
         UsbChargerChecker u = new UsbChargerChecker(view.getContext());

@@ -2,53 +2,32 @@
 <items version="2" >
 
     <item
-        jar="/home/mihai/Tudor/git/alarmAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars/classes.jar"
+        jar="/home/tudor/Work/GitRepos/alarmAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/libs/internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="/home/tudor/Work/GitRepos/alarmAndroid/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.1-bd2ab129c3d566a5c5b69a58f02604bb01b4eb76.jar" />
+    </item>
+    <item
+        jar="/home/tudor/Work/GitRepos/alarmAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="5c5699834e9722f1c288fea2de82725d078ba127">
-        <dex dex="/home/mihai/Tudor/git/alarmAndroid/app/build/intermediates/pre-dexed/debug/classes-66ba44f7d12751a3490d1ef85221704a470abf23.jar" />
+        <dex dex="/home/tudor/Work/GitRepos/alarmAndroid/app/build/intermediates/pre-dexed/debug/classes-ac0d1ab0f14681c286f36ece6d31f903605802d3.jar" />
     </item>
     <item
-        jar="/home/mihai/Tudor/git/alarmAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
-        <dex dex="/home/mihai/Tudor/git/alarmAndroid/app/build/intermediates/pre-dexed/debug/classes-5d41d6732e3fbbfc32565516bb43eeec4f4c9233.jar" />
-    </item>
-    <item
-        jar="/home/mihai/Tudor/git/alarmAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/libs/internal_impl-23.1.1.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
-        <dex dex="/home/mihai/Tudor/git/alarmAndroid/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.1-b1ef2837d2bc00801b9e7427a7ad2b0298b62835.jar" />
-    </item>
-    <item
-        jar="/home/mihai/Tudor/alarmaStupi 2/ReadMic/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/libs/internal_impl-23.1.1.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
-        <dex dex="/home/mihai/Tudor/alarmaStupi 2/ReadMic/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.1-3662caae42dd4d2c22f3e08884bb9af65f1a95a9.jar" />
-    </item>
-    <item
-        jar="/home/mihai/Tudor/alarmaStupi 2/ReadMic/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
-        <dex dex="/home/mihai/Tudor/alarmaStupi 2/ReadMic/app/build/intermediates/pre-dexed/debug/classes-6a9a03b67c2891bfc8586fd25b5f3b918009d0a5.jar" />
-    </item>
-    <item
-        jar="/home/mihai/Tudor/AndroidSDK/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar"
+        jar="/home/tudor/Work/AndroidSDK/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
-        <dex dex="/home/mihai/Tudor/alarmaStupi 2/ReadMic/app/build/intermediates/pre-dexed/debug/support-annotations-23.1.1-15038fa57fe2374bb263fd25fe878ef548f257ca.jar" />
+        <dex dex="/home/tudor/Work/GitRepos/alarmAndroid/app/build/intermediates/pre-dexed/debug/support-annotations-23.1.1-b5280bf65b9004c43f83b4448c7e46e5ea59daa4.jar" />
     </item>
     <item
-        jar="/home/mihai/Tudor/alarmaStupi 2/ReadMic/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars/classes.jar"
+        jar="/home/tudor/Work/GitRepos/alarmAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
-        <dex dex="/home/mihai/Tudor/alarmaStupi 2/ReadMic/app/build/intermediates/pre-dexed/debug/classes-7c070e9e430e8dffb3b3bd2dc347ced88804e967.jar" />
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="/home/tudor/Work/GitRepos/alarmAndroid/app/build/intermediates/pre-dexed/debug/classes-6a52e53d0f69aafec3d79c7868267d7431d4e40c.jar" />
     </item>
 
 </items>
