@@ -1,4 +1,9 @@
-package com.example.tudorsidani.readmic;
+package com.example.tudorsidani.alarm.checkers;
+
+import com.example.tudorsidani.alarm.MainActivity;
+import com.example.tudorsidani.alarm.SmsM;
+import com.example.tudorsidani.alarm.checkers.Checker;
+import com.example.tudorsidani.alarm.checkers.InfoChecker;
 
 import java.util.ArrayList;
 import java.util.List;

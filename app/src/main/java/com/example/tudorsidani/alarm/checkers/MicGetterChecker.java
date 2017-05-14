@@ -1,19 +1,16 @@
-package com.example.tudorsidani.readmic;
+package com.example.tudorsidani.alarm.checkers;
 
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
-import android.widget.TextView;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import utils.ArrayUtils;
+import com.example.tudorsidani.alarm.MainActivity;
+import com.example.tudorsidani.alarm.checkers.Checker;
 
 /**
  * Created by tudorsidani on 29.06.2016.
  */
-public class MicGetterChecker implements Checker{
+public class MicGetterChecker implements Checker {
 
     private AudioRecord rec;
     private int sampleRate = 8000;

@@ -1,6 +1,4 @@
-package com.example.tudorsidani.readmic;
-
-import android.os.BatteryManager;
+package com.example.tudorsidani.alarm.checkers;
 
 import java.util.Calendar;
 

@@ -1,4 +1,4 @@
-package com.example.tudorsidani.readmic;
+package com.example.tudorsidani.alarm;
 
 import org.junit.Test;
 

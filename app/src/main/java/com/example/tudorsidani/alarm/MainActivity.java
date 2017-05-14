@@ -1,4 +1,4 @@
-package com.example.tudorsidani.readmic;
+package com.example.tudorsidani.alarm;
 
 import android.content.Context;
 import android.os.PowerManager;
@@ -9,12 +9,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
+import com.example.tudorsidani.alarm.checkers.InfoStatusChecker;
+import com.example.tudorsidani.alarm.checkers.MicGetterChecker;
+import com.example.tudorsidani.alarm.checkers.StatusChecker;
+import com.example.tudorsidani.alarm.checkers.UsbChargerChecker;
 
-import utils.ArrayUtils;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class MainActivity extends AppCompatActivity {

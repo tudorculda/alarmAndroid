@@ -1,4 +1,4 @@
-package com.example.tudorsidani.readmic;
+package com.example.tudorsidani.alarm.checkers;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -6,13 +6,16 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.BatteryManager;
 
+import com.example.tudorsidani.alarm.MainActivity;
+import com.example.tudorsidani.alarm.checkers.InfoChecker;
+
 import java.util.Calendar;
 
 /**
  * Created by tudor on 14.04.2017.
  */
 
-public class UsbChargerChecker  extends BroadcastReceiver implements InfoChecker{
+public class UsbChargerChecker  extends BroadcastReceiver implements InfoChecker {
 
     private long lastStatus_ms = 0;
     private long minDeltaTime_ms = 2 * 60 * 60 * 1000;
@@ -20,7 +23,7 @@ public class UsbChargerChecker  extends BroadcastReceiver implements InfoChecker
 
     private String lastError = "Telefonul nu incarca, nivelul bateriei=";
     private Intent intent;
-    private int level;
+    private int level = 0;
     boolean isPlugged = true;
     private MainActivity log;
     public void setLog( MainActivity l )
@@ -48,7 +51,7 @@ public class UsbChargerChecker  extends BroadcastReceiver implements InfoChecker
 
 
     public int getBatteryLevel(){
-        return  intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
+        return  level;
     }
 
 
@@ -62,7 +65,7 @@ public class UsbChargerChecker  extends BroadcastReceiver implements InfoChecker
             isPlugged = false;
         }
         if(action.equals(Intent.ACTION_BATTERY_CHANGED))
-            intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
+            level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
     }
 
     @Override

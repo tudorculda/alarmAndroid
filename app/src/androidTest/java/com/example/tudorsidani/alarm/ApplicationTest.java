@@ -1,4 +1,4 @@
-package com.example.tudorsidani.readmic;
+package com.example.tudorsidani.alarm;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
