@@ -87,6 +87,12 @@ public class StatusChecker implements Runnable{
         for( Checker c : checkerList){
             c.clearObject();
         }
-        smsDist.sendSms("Aplicatia de alarma a fost inchisa");
+        if (smsDist != null) {
+           try{
+               smsDist.sendSms("Aplicatia de alarma a fost inchisa");
+           } catch(Exception ex){
+               printMsg(ex.getMessage());
+           }
+        }
     }
 }

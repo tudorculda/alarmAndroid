@@ -18,7 +18,7 @@ import java.util.Calendar;
 public class UsbChargerChecker  extends BroadcastReceiver implements InfoChecker {
 
     private long lastStatus_ms = 0;
-    private long minDeltaTime_ms = 2 * 60 * 60 * 1000;
+    private long minDeltaTime_ms = 4 * 60 * 60 * 1000;
 
 
     private String lastError = "Telefonul nu incarca, nivelul bateriei=";

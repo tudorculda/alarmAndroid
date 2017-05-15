@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.tudorsidani.alarm.checkers.InfoStatusChecker;
+import com.example.tudorsidani.alarm.checkers.LowBatteryChecker;
 import com.example.tudorsidani.alarm.checkers.MicGetterChecker;
 import com.example.tudorsidani.alarm.checkers.StatusChecker;
 import com.example.tudorsidani.alarm.checkers.UsbChargerChecker;
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private StatusChecker statusChecker;
     private TextView logView;
     PowerManager.WakeLock wl;
+    private Thread checkerThread;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy(){
         statusChecker.isRunning = false;
+        try {
+            checkerThread.join(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         wl.release();
         super.onDestroy();
 
@@ -77,10 +85,11 @@ public class MainActivity extends AppCompatActivity {
         u.setLog(this);
         statusChecker.addInfoChecker(u);
         statusChecker.addInfoChecker(new InfoStatusChecker(u));
+        statusChecker.addInfoChecker(new LowBatteryChecker(u));
         Button bt = (Button) findViewById(R.id.rec_button );
         bt.setEnabled(false);
-        Thread t = new Thread(statusChecker);
-        t.start();
+        checkerThread = new Thread(statusChecker);
+        checkerThread.start();
     }
 
 }

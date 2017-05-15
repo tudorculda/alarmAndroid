@@ -72,8 +72,10 @@ public class MicGetterChecker implements Checker {
     protected void finalize()
     {
 
-       if (rec!=null)
+       if (rec!=null) {
            rec.release();
+           rec = null;
+       }
         printMsg("Mic object released");
         try {
             super.finalize();
@@ -118,5 +120,6 @@ public class MicGetterChecker implements Checker {
     @Override
     public void clearObject() {
         finalize();
+
     }
 }

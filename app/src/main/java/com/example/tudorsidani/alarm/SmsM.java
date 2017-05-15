@@ -24,9 +24,16 @@ public class SmsM {
         String msgWithDetails = "Mesaj de la alarma la\n" + df.format(new Date()) + "\n cu urmatorul text:\n" + msg;
         SmsManager smsManager = SmsManager.getDefault();
 
+        if (smsManager == null ){
+            throw new IllegalArgumentException("Sms manager nu poate fi initializat");
+        }
         for( String phone : phoneNumbers ) {
-            if (!phone.isEmpty() )
-                smsManager.sendTextMessage( phone, null, msgWithDetails, null, null );
+            if (phone.isEmpty() )
+                try{
+                    smsManager.sendTextMessage( phone, null, msgWithDetails, null, null );
+                } catch (Exception ex){
+                    throw new IllegalArgumentException("Sms nu poate fi trimis, verifica permisiunile aplicatiei sau creditul pe cartela. Sms=" + msgWithDetails);
+                }
         }
     }
 }
